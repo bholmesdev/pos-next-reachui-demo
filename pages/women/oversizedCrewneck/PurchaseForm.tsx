@@ -7,6 +7,7 @@ import VisuallyHidden from "@reach/visually-hidden";
 import { useId } from "@reach/auto-id";
 import QuantityTag from "./QuantityTag";
 import { headerText } from "../../shared/styles";
+import { SelectBox, SelectBoxOption } from "../../shared/SelectBox";
 
 type Props = {
   price: number;
@@ -36,21 +37,6 @@ const Form = styled.form`
   display: grid;
   width: 300px;
   row-gap: 30px;
-
-  [data-reach-listbox-button] {
-    border: 1px solid #666;
-    padding: 0;
-    padding-left: 10px;
-    box-sizing: border-box;
-    width: 100%;
-  }
-
-  [data-reach-listbox-arrow] {
-    border-left: 1px solid #666;
-    line-height: 0;
-    padding: 10px 8px;
-    margin-left: 20px;
-  }
 `;
 
 const QuantityInputLabel = styled.label`
@@ -63,16 +49,6 @@ const QuantityInputLabel = styled.label`
     margin-left: auto;
     padding: 10px;
     width: 40px;
-  }
-`;
-
-const StyledOption = styled(ListboxOption)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  &[aria-selected="true"] {
-    background: ${(props) => props.theme.black};
   }
 `;
 
@@ -92,7 +68,7 @@ const formatCurrency = (num) => {
 
 const PurchaseForm: React.FC<Props> = ({ price, sizing }) => {
   const labelIds = {
-    size: "size-label--" + useId(),
+    size: "size-label",
     quantity: "quantity-label--" + useId(),
   };
   const onSubmit = (data) => console.log(data);
@@ -110,15 +86,10 @@ const PurchaseForm: React.FC<Props> = ({ price, sizing }) => {
       <Price>${formatCurrency(price)}</Price>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <VisuallyHidden id={labelIds.size}>Size</VisuallyHidden>
-        <Listbox
-          aria-labelledby={labelIds.size}
-          name="size"
-          arrow={<ArrowIcon size={26} />}
-          onChange={setSizeValue}
-        >
-          <StyledOption value="default">Choose a size</StyledOption>
+        <SelectBox id={labelIds.size} name="size" onChange={setSizeValue}>
+          <SelectBoxOption value="default">Choose a size</SelectBoxOption>
           {sizing.map((size) => (
-            <StyledOption
+            <SelectBoxOption
               key={size.abbreviation}
               label={size.abbreviation}
               value={size.abbreviation}
@@ -126,9 +97,9 @@ const PurchaseForm: React.FC<Props> = ({ price, sizing }) => {
             >
               {size.abbreviation}
               <QuantityTag amtInStock={size.amtInStock} />
-            </StyledOption>
+            </SelectBoxOption>
           ))}
-        </Listbox>
+        </SelectBox>
         {errors.size && <span>This field is required!</span>}
         <QuantityInputLabel htmlFor={labelIds.quantity}>
           Quantity
