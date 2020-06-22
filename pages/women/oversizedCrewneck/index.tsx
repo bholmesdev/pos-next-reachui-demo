@@ -3,6 +3,7 @@ import { GetServerSideProps } from "next";
 import styled from "styled-components";
 import ImageModal from "./ImageModal";
 import PurchaseForm from "./PurchaseForm";
+import { AlertProvider } from "../../shared/Alert";
 
 const Product = styled.section`
   display: grid;
@@ -52,31 +53,33 @@ const OversizedCrewneck: React.FC<Props> = ({ itemInfo }: Props) => {
   };
 
   return (
-    <Product>
-      <Header>
-        <h1>{itemInfo.name}</h1>
-        <h2>{itemInfo.brand}</h2>
-      </Header>
-      <Photos>
-        {itemInfo.images.map(({ src, alt }) => (
-          <ClickablePhoto onClick={() => showPhotoModal(src, alt)}>
-            <img src={src} alt={alt} />
-          </ClickablePhoto>
-        ))}
-      </Photos>
-      <div>
-        <PurchaseForm price={itemInfo.price} sizing={itemInfo.sizing} />
-        <section
-          dangerouslySetInnerHTML={{ __html: itemInfo.description }}
-        ></section>
-        <ImageModal
-          imageSrc={photoModalImage.src}
-          imageAlt={photoModalImage.alt}
-          show={photoModalShowing}
-          close={() => setPhotoModalShowing(false)}
-        />
-      </div>
-    </Product>
+    <AlertProvider>
+      <Product>
+        <Header>
+          <h1>{itemInfo.name}</h1>
+          <h2>{itemInfo.brand}</h2>
+        </Header>
+        <Photos>
+          {itemInfo.images.map(({ src, alt }) => (
+            <ClickablePhoto key={src} onClick={() => showPhotoModal(src, alt)}>
+              <img src={src} alt={alt} />
+            </ClickablePhoto>
+          ))}
+        </Photos>
+        <div>
+          <PurchaseForm price={itemInfo.price} sizing={itemInfo.sizing} />
+          <article
+            dangerouslySetInnerHTML={{ __html: itemInfo.description }}
+          ></article>
+          <ImageModal
+            imageSrc={photoModalImage.src}
+            imageAlt={photoModalImage.alt}
+            show={photoModalShowing}
+            close={() => setPhotoModalShowing(false)}
+          />
+        </div>
+      </Product>
+    </AlertProvider>
   );
 };
 

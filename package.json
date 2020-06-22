@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@reach/alert": "^0.10.4",
     "@reach/auto-id": "^0.10.4",
     "@reach/dialog": "^0.10.4",
     "@reach/listbox": "^0.10.4",
@@ -16,6 +17,7 @@
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-flip-move": "^3.0.4",
     "react-hook-form": "^5.7.2",
     "react-icons": "^3.10.0",
     "styled-components": "^5.1.1"

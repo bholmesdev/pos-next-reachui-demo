@@ -1050,6 +1050,16 @@
   resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-9.4.4.tgz#d94cbb3b354a07f1f5b80e554d6b9e34aba99e41"
   integrity sha512-9nKENeWRI6kQk44TbeqleIVtNLfcS3klVUepzl/ZCqzR5Bi06uqBCD277hdVvG/wL1pxA+R/pgJQLqnF5E2wPQ==
 
+"@reach/alert@^0.10.4":
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/@reach/alert/-/alert-0.10.4.tgz#c4bc7b439cd83f6dd48887ae97eb2e77c5d1e694"
+  integrity sha512-E0117wjSwTiPg3x6d+iY2+7u1c51gf/k3HScK4OUoT/GyykkZZpsqa5n+FtGlkOH6VHj42BfHyVoQeLlXUtnZQ==
+  dependencies:
+    "@reach/utils" "0.10.4"
+    "@reach/visually-hidden" "0.10.4"
+    prop-types "^15.7.2"
+    tslib "^2.0.0"
+
 "@reach/auto-id@0.10.4", "@reach/auto-id@^0.10.4":
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.10.4.tgz#ba9c0c96c3fd037f2d3c70e9e2e6a784a83abfab"
@@ -1154,7 +1164,7 @@
     tslib "^2.0.0"
     warning "^4.0.3"
 
-"@reach/visually-hidden@^0.10.4":
+"@reach/visually-hidden@0.10.4", "@reach/visually-hidden@^0.10.4":
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/@reach/visually-hidden/-/visually-hidden-0.10.4.tgz#ab390db0adf759393af4d856f84375468b1df676"
   integrity sha512-GnuPuTRCf+Ih47BoKvGyB+jP8EVWLb04GfbGa5neOrjdp90qrb4zr7pMSL4ZvTsrxt9MRooJA2BhSxs5DbyqCQ==
@@ -4739,6 +4749,11 @@ react-dom@16.13.1:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.19.1"
+
+react-flip-move@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/react-flip-move/-/react-flip-move-3.0.4.tgz#261f66101fbc305f9b7b28959c5cf8236413ca74"
+  integrity sha512-HyUVv9g3t/BS7Yz9HgrtYSWyRNdR2F81nkj+C5iRY675AwlqCLB5JU9mnZWg0cdVz7IM4iquoyZx70vzZv3Z8Q==
 
 react-focus-lock@^2.3.1:
   version "2.4.0"
