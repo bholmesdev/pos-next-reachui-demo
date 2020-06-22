@@ -12,7 +12,7 @@ type Props = {
 };
 
 const StyledOverlay = styled(DialogOverlay)`
-  background: hsla(0, 0, 0, 0.1);
+  background: hsla(0, 0, 0, 0.9);
 `;
 
 const StyledModal = styled(DialogContent)`
@@ -21,6 +21,8 @@ const StyledModal = styled(DialogContent)`
   position: relative;
   border-radius: 10px;
   padding-top: 50px;
+  width: 1000px;
+  max-width: 90vw;
 `;
 
 const CloseButton = styled.button`
@@ -45,8 +47,8 @@ const Image = styled.img`
 
 const ImageModal: React.FC<Props> = ({ imageSrc, imageAlt, show, close }) => {
   return (
-    <StyledOverlay isOpen={show} onDismiss={close}>
-      <StyledModal allowPinchZoom={true}>
+    <StyledOverlay allowPinchZoom={true} isOpen={show} onDismiss={close}>
+      <StyledModal aria-labelledby={imageAlt}>
         <CloseButton onClick={close}>
           <VisuallyHidden>Close</VisuallyHidden>
           <CloseIcon size={44} />
