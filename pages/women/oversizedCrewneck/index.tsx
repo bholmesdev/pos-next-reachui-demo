@@ -1,7 +1,7 @@
 import * as React from "react";
 import { GetServerSideProps } from "next";
 import styled from "styled-components";
-import ImageModal from "./ImageModal";
+import ImageModal from "../../shared/ImageModal";
 import PurchaseForm from "./PurchaseForm";
 import { AlertProvider } from "../../shared/Alert";
 
